@@ -67,11 +67,20 @@ public class Zlomek {
          return new Zlomek(cit,jmen);
 
     }
+    public Zlomek plus(int b) {
+        int cit = citatel  + b * jmenovatel;
+        return new Zlomek(cit,jmenovatel);
+
+    }
 
     public Zlomek minus(Zlomek b) {
         int jmen = jmenovatel * b.jmenovatel;
         int cit = citatel * b.jmenovatel - b.citatel * jmenovatel;
         return new Zlomek(cit,jmen);
+
+    }public Zlomek minus(int b) {
+        int cit = citatel  - b * jmenovatel;
+        return new Zlomek(cit,jmenovatel);
 
     }
 
@@ -80,11 +89,19 @@ public class Zlomek {
         int cit = citatel * b.citatel;
         return new Zlomek(cit,jmen);
     }
+    public Zlomek multiply(int b) {
+        int cit = citatel * b;
+        return new Zlomek(cit,jmenovatel);
+    }
 
     public Zlomek divide(Zlomek b) {
         int jmen = jmenovatel * b.citatel;
         int cit = citatel * b.jmenovatel;
         return new Zlomek(cit,jmen);
+    }
+    public Zlomek divide(int b) {
+        int jmen = jmenovatel * b;
+        return new Zlomek(citatel,jmen);
     }
 
     public Zlomek Shorten(){
