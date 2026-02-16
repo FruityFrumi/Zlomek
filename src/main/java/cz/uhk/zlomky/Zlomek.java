@@ -7,7 +7,10 @@ public class Zlomek {
     /**
      * Default Constructor
      */
-    public Zlomek() {}
+    public Zlomek() {
+        citatel = 0;
+        jmenovatel = 1;
+    }
 
     /**
      * Constructor With 2 Parameters
@@ -18,6 +21,14 @@ public class Zlomek {
     public Zlomek(int citatel, int jmenovatel) {
         this.citatel = citatel;
         this.jmenovatel = jmenovatel;
+     /*   try {
+            if(jmenovatel == 0) {
+
+            }
+        }
+        catch (Exception e) {}
+
+      */
     }
 
     // selector = Getter
@@ -41,7 +52,58 @@ public class Zlomek {
     @Override
     public String toString() {
 
-        return String.format ("%4d\n ----- \n%4d", citatel, jmenovatel);
+        return String.format ("%d/%d", citatel, jmenovatel);
 
     }
+
+    /**
+     * Metoda pro sčitaní dvou zlomku
+     * @param b
+     * @return
+     */
+    public Zlomek plus(Zlomek b) {
+         int jmen = jmenovatel * b.jmenovatel;
+         int cit = citatel * b.jmenovatel + b.citatel * jmenovatel;
+         return new Zlomek(cit,jmen);
+
+    }
+
+    public Zlomek minus(Zlomek b) {
+        int jmen = jmenovatel * b.jmenovatel;
+        int cit = citatel * b.jmenovatel - b.citatel * jmenovatel;
+        return new Zlomek(cit,jmen);
+
+    }
+
+    public Zlomek multiply(Zlomek b) {
+        int jmen = jmenovatel * b.jmenovatel;
+        int cit = citatel * b.citatel;
+        return new Zlomek(cit,jmen);
+    }
+
+    public Zlomek divide(Zlomek b) {
+        int jmen = jmenovatel * b.citatel;
+        int cit = citatel * b.jmenovatel;
+        return new Zlomek(cit,jmen);
+    }
+
+    public Zlomek Shorten(){
+        int divide = nsd(citatel,jmenovatel);
+
+        return new Zlomek(citatel/divide,jmenovatel/divide);
+    }
+
+    // vypocet nejvetčiho společneho dělitele
+    private int nsd(int a, int b) {
+        int c ;
+        if (a < b ) { c = b ; b = a; a = c; }
+        int zbytek;
+        do {
+            zbytek = a % b;
+            a = b;
+            b = zbytek;
+        }while (zbytek != 0);
+        return a;
+    }
 }
+
