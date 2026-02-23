@@ -39,7 +39,8 @@ public class Main {
         Zlomek Avg = average(pole);
         IO.println("Divided : %s".formatted(Avg.Shorten()));
 
-
+        int cele = Avg.intValue();
+        IO.println("zlomek.cele : %s".formatted(cele));
     }
 
     private static Zlomek average(Zlomek[] pole) {
