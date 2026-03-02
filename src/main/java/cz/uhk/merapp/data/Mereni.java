@@ -1,24 +1,25 @@
 package cz.uhk.merapp.data;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import cz.uhk.util.Seznam;
+import cz.uhk.util.impl.SpojovySeznam;
 
 public class Mereni {
-    private List<Number> data = new ArrayList<>();
+    private Seznam<Number> data = new SpojovySeznam<>();
 
     public void addNumber(Number n)
     {
-        data.add(n);
+        data.pridej(n);
     }
 
     public  Number getNumber(int i)
     {
-        return data.get(i);
+        return data.vrat(i);
     }
 
     public int getSize()
     {
-        return data.size();
+        return data.pocet();
     }
 
 
@@ -33,12 +34,12 @@ public class Mereni {
 
     public  Number average()
     {
-        return addTogether().doubleValue()/data.size();
+        return addTogether().doubleValue()/data.pocet();
     }
 
     public Number maximum()
     {
-        Number Max = data.get(0);
+        Number Max = data.vrat(0);
         for (Number n1 : data){
             if (Max.doubleValue() < n1.doubleValue())
                 Max = n1;
@@ -48,7 +49,7 @@ public class Mereni {
 
     public Number minimum()
     {
-        Number min = data.get(0);
+        Number min = data.vrat(0);
         for (Number n1 : data){
             if (min.doubleValue() > n1.doubleValue())
                 min = n1;
