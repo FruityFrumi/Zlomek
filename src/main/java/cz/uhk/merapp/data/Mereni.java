@@ -15,6 +15,7 @@ public class Mereni {
     public  Number getNumber(int i)
     {
         return data.vrat(i);
+        //f
     }
 
     public int getSize()
