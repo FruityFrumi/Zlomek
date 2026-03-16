@@ -57,4 +57,8 @@ public class Mereni {
         }
         return min;
     }
+
+    public void pridatNaPozici(int index, Number hodnota){
+        data.pridejprvek(index, hodnota);
+    }
 }

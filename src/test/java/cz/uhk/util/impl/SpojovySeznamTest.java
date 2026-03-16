@@ -22,6 +22,13 @@ class SpojovySeznamTest {
     }
 
     @Test
+    void pridejprvek() {
+        initData();
+        assertEquals(4, seznam.pocet());
+    }
+
+
+    @Test
     void smaz() {
         initData();
         seznam.smaz(1);
